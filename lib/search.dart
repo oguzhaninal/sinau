@@ -47,15 +47,15 @@ class Search extends StatelessWidget {
             left: phoneSize.width * .05,
             right: phoneSize.width * .05,
             child: Wrap(
-              spacing: phoneSize.width * .02,
+              spacing: phoneSize.width * .04,
               children: [
-                browserButton("Technology"),
-                browserButton("Business"),
-                browserButton("Finance"),
-                browserButton("Python"),
-                browserButton("Programming"),
-                browserButton("Swift"),
-                browserButton("React Native"),
+                browserButton("Technology", phoneSize),
+                browserButton("Business", phoneSize),
+                browserButton("Finance", phoneSize),
+                browserButton("Python", phoneSize),
+                browserButton("Programming", phoneSize),
+                browserButton("Swift", phoneSize),
+                browserButton("React Native", phoneSize),
               ],
             ),
           ),
@@ -83,7 +83,7 @@ class Search extends StatelessWidget {
             right: phoneSize.width * .05),
         child: ListView.builder(
           padding: EdgeInsets.all(0),
-          shrinkWrap: true,
+          // shrinkWrap: true,
           itemCount: 5,
           itemBuilder: (BuildContext context, int index) {
             return getRecom(phoneSize);
@@ -148,24 +148,31 @@ class Search extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
           ),
-          child: Stack(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      icon: Icon(FlutterIcons.chevron_left_ent,
-                          color: Colors.white),
-                      onPressed: () {}),
-                  IconButton(
-                      alignment: Alignment.centerRight,
-                      icon: Icon(
-                        FlutterIcons.cart_outline_mco,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {})
-                ],
+              TextButton(
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Icon(
+                      FlutterIcons.chevron_left_ent,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: phoneSize.width * .04,
+                    ),
+                    Text("Explore", style: TextStyle(color: Colors.white)),
+                  ],
+                ),
               ),
+              IconButton(
+                  // alignment: Alignment.centerRight,
+                  icon: Icon(
+                    FlutterIcons.cart_outline_mco,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {})
             ],
           ),
         ),
@@ -173,10 +180,17 @@ class Search extends StatelessWidget {
     );
   }
 
-  browserButton(String buttonName) {
+  browserButton(String buttonName, Size phoneSize) {
     return TextButton(
       onPressed: () {},
-      child: Text(buttonName),
+      child: Padding(
+        padding: EdgeInsets.only(
+            left: phoneSize.width * .008, right: phoneSize.width * .008),
+        child: Text(
+          buttonName,
+          style: TextStyle(fontSize: phoneSize.width * .024),
+        ),
+      ),
       style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
@@ -188,7 +202,9 @@ class Search extends StatelessWidget {
 
   getRecom(Size phoneSize) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.only(
+        bottom: 10,
+      ),
       height: phoneSize.height * .14,
       child: Card(
         shape: RoundedRectangleBorder(
@@ -198,22 +214,30 @@ class Search extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: phoneSize.height * .09,
-                width: phoneSize.height * .09,
-                decoration: BoxDecoration(
-                  color: MainColors.cardBoxColor,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Center(
-                  child: Container(
-                    height: phoneSize.height * .025,
-                    width: phoneSize.height * .025,
-                    decoration: BoxDecoration(
-                        color: MainColors.circleColor,
-                        borderRadius: BorderRadius.circular(50)),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: phoneSize.height * .01),
+                    child: Container(
+                      height: phoneSize.height * .09,
+                      width: phoneSize.height * .09,
+                      decoration: BoxDecoration(
+                        color: MainColors.cardBoxColor,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Center(
+                        child: Container(
+                          height: phoneSize.height * .025,
+                          width: phoneSize.height * .025,
+                          decoration: BoxDecoration(
+                              color: MainColors.circleColor,
+                              borderRadius: BorderRadius.circular(50)),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
               Padding(
                 padding: EdgeInsets.all(phoneSize.height * .003),
@@ -230,14 +254,17 @@ class Search extends StatelessWidget {
                       "Devices",
                       style: TextStyle(fontSize: phoneSize.width * .03),
                     ),
-                    Text(
-                      "IDR 850.000",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: phoneSize.width * .03),
+                    Padding(
+                      padding: EdgeInsets.only(top: phoneSize.height * .01),
+                      child: Text(
+                        "IDR 850.000",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: phoneSize.width * .03),
+                      ),
                     ),
                     SizedBox(
-                      height: phoneSize.height * .012,
+                      height: phoneSize.height * .008,
                     ),
                     Row(
                       children: [

@@ -137,9 +137,12 @@ class Home extends StatelessWidget {
                           Radius.circular(15),
                         ),
                       ),
-                      child: Icon(
-                        FlutterIcons.cards_diamond_mco,
-                        color: MainColors.diamondColor,
+                      child: RotationTransition(
+                        turns: AlwaysStoppedAnimation(45 / 360),
+                        child: Icon(
+                          FlutterIcons.square_faw,
+                          color: MainColors.diamondColor,
+                        ),
                       ),
                     ),
                   ],
@@ -296,13 +299,16 @@ class Home extends StatelessWidget {
                       "Devices",
                       style: TextStyle(fontSize: phoneSize.width * .03),
                     ),
-                    Text("IDR 850.000",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: phoneSize.width * .03,
-                        )),
+                    Padding(
+                      padding: EdgeInsets.only(top: phoneSize.height * .01),
+                      child: Text("IDR 850.000",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: phoneSize.width * .03,
+                          )),
+                    ),
                     SizedBox(
-                      height: phoneSize.height * .012,
+                      height: phoneSize.height * .008,
                     ),
                     Row(
                       children: [
@@ -354,25 +360,30 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(phoneSize.height * .006),
-                child: Container(
-                  height: phoneSize.height * .09,
-                  width: phoneSize.height * .09,
-                  decoration: BoxDecoration(
-                    color: MainColors.cardBoxColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Center(
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: phoneSize.height * .01),
                     child: Container(
-                      height: phoneSize.height * .025,
-                      width: phoneSize.height * .025,
+                      height: phoneSize.height * .09,
+                      width: phoneSize.height * .09,
                       decoration: BoxDecoration(
-                          color: MainColors.circleColor,
-                          borderRadius: BorderRadius.circular(50)),
+                        color: MainColors.cardBoxColor,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Center(
+                        child: Container(
+                          height: phoneSize.height * .025,
+                          width: phoneSize.height * .025,
+                          decoration: BoxDecoration(
+                              color: MainColors.circleColor,
+                              borderRadius: BorderRadius.circular(50)),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               )
             ],
           ),
