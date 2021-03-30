@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'homeScreen/homeScreen.dart';
+import 'myNavBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "DMSans"),
       title: "Sinau",
-      home: Home(),
+      home: NavBar(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
