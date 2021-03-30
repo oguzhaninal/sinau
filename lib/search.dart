@@ -17,13 +17,13 @@ class Search extends StatelessWidget {
               children: [
                 bottomContainer(phoneSize),
                 Positioned(
-                  top: phoneSize.height * .26,
+                  top: phoneSize.height * .27,
                   left: phoneSize.width * .05,
                   child: Text(
                     "Recommendation Courses",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                      fontSize: phoneSize.width * .035,
                     ),
                   ),
                 ),
@@ -34,7 +34,7 @@ class Search extends StatelessWidget {
                     "Browser Category",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                      fontSize: phoneSize.width * .035,
                     ),
                   ),
                 )
@@ -46,23 +46,13 @@ class Search extends StatelessWidget {
             top: phoneSize.height * .28,
             left: phoneSize.width * .05,
             right: phoneSize.width * .05,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Wrap(
+              spacing: phoneSize.width * .02,
               children: [
                 browserButton("Technology"),
                 browserButton("Business"),
                 browserButton("Finance"),
                 browserButton("Python"),
-              ],
-            ),
-          ),
-          Positioned(
-            top: phoneSize.height * .34,
-            left: phoneSize.width * .05,
-            right: phoneSize.width * .05,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
                 browserButton("Programming"),
                 browserButton("Swift"),
                 browserButton("React Native"),
@@ -225,75 +215,79 @@ class Search extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: phoneSize.height * .01),
-                    child: Text(
+              Padding(
+                padding: EdgeInsets.all(phoneSize.height * .003),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                       "Declarative Interfaces for any Apple",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: phoneSize.width * .029,
                       ),
                     ),
-                  ),
-                  Text(
-                    "Devices",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  Text(
-                    "IDR 850.000",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                  ),
-                  SizedBox(
-                    height: phoneSize.height * .012,
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: MainColors.starColor,
-                        size: phoneSize.height * .025,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(phoneSize.width * .006),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.grey,
-                          radius: phoneSize.height * .003,
+                    Text(
+                      "Devices",
+                      style: TextStyle(fontSize: phoneSize.width * .03),
+                    ),
+                    Text(
+                      "IDR 850.000",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: phoneSize.width * .03),
+                    ),
+                    SizedBox(
+                      height: phoneSize.height * .012,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: MainColors.starColor,
+                          size: phoneSize.height * .025,
                         ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "4.5",
+                        Padding(
+                          padding: EdgeInsets.all(phoneSize.width * .006),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.grey,
+                            radius: phoneSize.height * .003,
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: "4.5",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: phoneSize.width * .035),
+                            children: [
+                              TextSpan(
+                                text: " By Saray William ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: phoneSize.width * .03,
+                                    color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(phoneSize.width * .006),
+                          child: CircleAvatar(
+                            radius: phoneSize.height * .003,
+                            backgroundColor: Colors.grey,
+                          ),
+                        ),
+                        Text(
+                          " All Level",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 14),
-                          children: [
-                            TextSpan(
-                              text: " By Saray William ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 14,
-                                  color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(phoneSize.width * .006),
-                        child: CircleAvatar(
-                          radius: phoneSize.height * .003,
-                          backgroundColor: Colors.grey,
-                        ),
-                      ),
-                      Text(
-                        " All Level",
-                        style: TextStyle(color: Colors.grey, fontSize: 14),
-                      )
-                    ],
-                  )
-                ],
+                              color: Colors.grey,
+                              fontSize: phoneSize.width * .033),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ],
           ),

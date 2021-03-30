@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
           child: Stack(
             children: [
               Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleAvatar(
                     radius: phoneSize.height * .035,
@@ -53,19 +53,21 @@ class Home extends StatelessWidget {
                     children: [
                       Text(
                         "Welcome back",
-                        style: TextStyle(fontSize: 10, color: Colors.white),
+                        style: TextStyle(
+                            fontSize: phoneSize.width * .027,
+                            color: Colors.white),
                       ),
                       Text(
                         "Poetri Lazuardi",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: phoneSize.width * .032,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
                     ],
                   ),
                   SizedBox(
-                    width: phoneSize.width * .360,
+                    width: phoneSize.width * .355,
                   ),
                   IconButton(
                       alignment: Alignment.centerRight,
@@ -112,14 +114,12 @@ class Home extends StatelessWidget {
                       children: [
                         Text(
                           "Declarative Interfaces for any Apple",
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
+                          style: TextStyle(fontSize: phoneSize.width * .03),
                         ),
                         Text(
                           "Devices",
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: phoneSize.width * .03,
                           ),
                         ),
                         Text(
@@ -205,14 +205,14 @@ class Home extends StatelessWidget {
               Text(
                 "Current Progress",
                 style: TextStyle(
-                  fontSize: 11,
+                  fontSize: phoneSize.width * .03,
                   color: Colors.grey,
                 ),
               ),
               Text(
                 "${this.progress * 100}%",
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: phoneSize.width * .035,
                 ),
               )
             ],
@@ -260,7 +260,7 @@ class Home extends StatelessWidget {
               "Recommendation",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 14,
+                fontSize: phoneSize.width * .035,
               ),
             ),
           )
@@ -281,90 +281,96 @@ class Home extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: phoneSize.height * .01),
-                    child: Text(
+              Padding(
+                padding: EdgeInsets.all(phoneSize.height * .006),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                       "Declarative Interfaces for any Apple",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: phoneSize.width * .03,
                       ),
                     ),
-                  ),
-                  Text(
-                    "Devices",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  Text(
-                    "IDR 850.000",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                  ),
-                  SizedBox(
-                    height: phoneSize.height * .012,
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: MainColors.starColor,
-                        size: phoneSize.height * .025,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(phoneSize.width * .006),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.grey,
-                          radius: phoneSize.height * .003,
+                    Text(
+                      "Devices",
+                      style: TextStyle(fontSize: phoneSize.width * .03),
+                    ),
+                    Text("IDR 850.000",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: phoneSize.width * .03,
+                        )),
+                    SizedBox(
+                      height: phoneSize.height * .012,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: MainColors.starColor,
+                          size: phoneSize.height * .025,
                         ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: "4.5",
+                        Padding(
+                          padding: EdgeInsets.all(phoneSize.width * .006),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.grey,
+                            radius: phoneSize.height * .003,
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: "4.5",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: phoneSize.width * .033),
+                            children: [
+                              TextSpan(
+                                text: " By Saray William ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: phoneSize.width * .03,
+                                    color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(phoneSize.width * .006),
+                          child: CircleAvatar(
+                            radius: phoneSize.height * .003,
+                            backgroundColor: Colors.grey,
+                          ),
+                        ),
+                        Text(
+                          " All Level",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 14),
-                          children: [
-                            TextSpan(
-                              text: " By Saray William ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 14,
-                                  color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(phoneSize.width * .006),
-                        child: CircleAvatar(
-                          radius: phoneSize.height * .003,
-                          backgroundColor: Colors.grey,
-                        ),
-                      ),
-                      Text(
-                        " All Level",
-                        style: TextStyle(color: Colors.grey, fontSize: 14),
-                      )
-                    ],
-                  )
-                ],
-              ),
-              Container(
-                height: phoneSize.height * .09,
-                width: phoneSize.height * .09,
-                decoration: BoxDecoration(
-                  color: MainColors.cardBoxColor,
-                  borderRadius: BorderRadius.circular(15),
+                              color: Colors.grey,
+                              fontSize: phoneSize.width * .03),
+                        )
+                      ],
+                    )
+                  ],
                 ),
-                child: Center(
-                  child: Container(
-                    height: phoneSize.height * .025,
-                    width: phoneSize.height * .025,
-                    decoration: BoxDecoration(
-                        color: MainColors.circleColor,
-                        borderRadius: BorderRadius.circular(50)),
+              ),
+              Padding(
+                padding: EdgeInsets.all(phoneSize.height * .006),
+                child: Container(
+                  height: phoneSize.height * .09,
+                  width: phoneSize.height * .09,
+                  decoration: BoxDecoration(
+                    color: MainColors.cardBoxColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Center(
+                    child: Container(
+                      height: phoneSize.height * .025,
+                      width: phoneSize.height * .025,
+                      decoration: BoxDecoration(
+                          color: MainColors.circleColor,
+                          borderRadius: BorderRadius.circular(50)),
+                    ),
                   ),
                 ),
               )

@@ -14,6 +14,12 @@ class _NavBarState extends State<NavBar> {
   static List pages = [
     Home(),
     Search(),
+    Center(
+      child: Text("data"),
+    ),
+    Center(
+      child: Text("askjask"),
+    )
   ];
 
   @override
